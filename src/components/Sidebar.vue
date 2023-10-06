@@ -3,28 +3,28 @@
     <div class="wrapper">
       <div class="steps">
         <div class="step">
-          <div class="number">1</div>
+          <div @click="$emit('changeStep', 1)" :class="{ active: currentStep === 1 }" class="number">1</div>
           <div class="step__info">
             <div>Step 1</div>
             <div>Your Info</div>
           </div>
         </div>
         <div class="step">
-          <div class="number">2</div>
+          <div @click="$emit('changeStep', 2)" :class="{ active: currentStep === 2 }" class="number">2</div>
           <div class="step__info">
             <div>Step 2</div>
             <div>Select Plan</div>
           </div>
         </div>
         <div class="step">
-          <div class="number">3</div>
+          <div @click="$emit('changeStep', 3)" :class="{ active: currentStep === 3 }" class="number">3</div>
           <div class="step__info">
             <div>Step 3</div>
             <div>Add-Ons</div>
           </div>
         </div>
         <div class="step">
-          <div class="number">4</div>
+          <div @click="$emit('changeStep', 4)" :class="{ active: currentStep === 4 }" class="number">4</div>
           <div class="step__info">
             <div>Step 4</div>
             <div>Summary</div>
@@ -35,14 +35,16 @@
   </fragment>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+interface SideBarProps {
+  currentStep: number;
+}
 
-export default defineComponent({
-  setup() {
-    return {};
-  },
-});
+const emit = defineEmits<{
+  changeStep: [step: number];
+}>();
+
+const { currentStep } = defineProps<SideBarProps>();
 </script>
 
 <style lang="scss" scoped>
@@ -88,6 +90,7 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .step__info {
@@ -95,5 +98,10 @@ export default defineComponent({
     font-size: 1rem;
     opacity: 0.7;
   }
+}
+
+.active {
+  background-color: var(--Pastel-blue);
+  color: black;
 }
 </style>

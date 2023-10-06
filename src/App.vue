@@ -1,13 +1,20 @@
 <template>
   <div class="wrapper">
     <div class="content">
-      <Sidebar />
+      <Sidebar @changeStep="onStepChange" :currentStep="currentStep" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import Sidebar from './components/Sidebar.vue';
+
+const currentStep = ref(1);
+
+const onStepChange = (step: number) => {
+  currentStep.value = step;
+};
 </script>
 
 <style scoped>
