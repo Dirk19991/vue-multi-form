@@ -1,6 +1,6 @@
 <template>
   <fragment>
-    <div class="wrapper">
+    <aside class="wrapper">
       <div class="steps">
         <div class="step">
           <div @click="$emit('changeStep', 1)" :class="{ active: currentStep === 1 }" class="number">1</div>
@@ -31,7 +31,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </aside>
   </fragment>
 </template>
 

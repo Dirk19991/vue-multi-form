@@ -1,14 +1,16 @@
 <template>
-  <div class="wrapper">
+  <main class="wrapper">
     <div class="content">
       <Sidebar @changeStep="onStepChange" :currentStep="currentStep" />
+      <StepWrapper :currentStep="currentStep" />
     </div>
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import Sidebar from './components/Sidebar.vue';
+import StepWrapper from './components/StepWrapper.vue';
 
 const currentStep = ref(1);
 
@@ -29,6 +31,7 @@ const onStepChange = (step: number) => {
 .content {
   width: 1050px;
   height: 80%;
+  display: flex;
   background-color: white;
   border-radius: 20px;
 }
