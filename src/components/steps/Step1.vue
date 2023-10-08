@@ -16,14 +16,16 @@
         <input v-model="phone" class="input" type="tel" name="phone" />
       </label>
     </form>
+    <button class="button">Next</button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useUserInfo } from '../../store/useUserInfo';
+import { useUserInfo } from '@/store/useUserInfo';
 import { storeToRefs } from 'pinia';
 
 const store = useUserInfo();
+
 const { name, email, phone } = storeToRefs(store);
 </script>
 
@@ -61,5 +63,11 @@ const { name, email, phone } = storeToRefs(store);
   font-size: 1.2rem;
   color: var(--Cool-gray);
   margin-bottom: 30px;
+}
+
+.button {
+  align-self: flex-end;
+  margin-top: auto;
+  margin-bottom: 10px;
 }
 </style>
