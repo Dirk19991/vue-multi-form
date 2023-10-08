@@ -32,6 +32,7 @@ const onStepChange = (step: number) => {
   width: 1050px;
   height: 80%;
   display: flex;
+  gap: 100px;
   background-color: white;
   border-radius: 20px;
 }
